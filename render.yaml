@@ -1,24 +1,24 @@
 services:
 - type: pserv
-  name: mysql
+  name: mariadb
   plan: standard
   env: docker
   autoDeploy: false
   disk:
-    name: mysql
-    mountPath: /var/lib/mysql
+    name: mariadb
+    mountPath: /var/lib/mariadb
     sizeGB: 10
   envVars:
-  - fromGroup: mysql
+  - fromGroup: mariadb
 
 envVarGroups:
-- name: mysql
+- name: mariadb
   envVars:
-  - key: MYSQL_DATABASE
-    value: mysql
-  - key: MYSQL_USER
-    value: mysql
-  - key: MYSQL_PASSWORD
+  - key: MARIADB_DATABASE
+    value: mariadb
+  - key: MARIADB_USER
+    value: mariadb
+  - key: MARIADB_PASSWORD
     generateValue: true
-  - key: MYSQL_ROOT_PASSWORD
+  - key: MARIADB_ROOT_PASSWORD
     generateValue: true
