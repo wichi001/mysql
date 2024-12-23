@@ -4,8 +4,6 @@ FROM mysql/mysql-server:8.0.17
 
 RUN mkdir -p /var/lib/mysql/backups
 
-EXPOSE 3306
-
 CMD mysqldump -h "$MYSQL_HOST" -u "$MYSQL_USER" --password="$MYSQL_PASSWORD" \
     --single-transaction \
     --result-file=/var/lib/mysql/backups/backup.$(date +%F.%T).sql \
